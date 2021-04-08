@@ -98,7 +98,7 @@ export default class EditExercise extends Component {
       <h3>Edit Exercise Log</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Username: </label>
+          <label>Product Name: </label>
           <select ref="userInput"
               required
               className="form-control"
@@ -115,7 +115,7 @@ export default class EditExercise extends Component {
           </select>
         </div>
         <div className="form-group"> 
-          <label>Description: </label>
+          <label>Price: </label>
           <input  type="text"
               required
               className="form-control"
@@ -124,7 +124,7 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
+          <label>Duration (in month): </label>
           <input 
               type="text" 
               className="form-control"
@@ -133,15 +133,14 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Date: </label>
+          <label>Import Date: </label>
           <div>
             <DatePicker
               selected={this.state.date}
-              onChange={this.onChangeDate}
+              onChange={this.onChangeIDate}
             />
           </div>
         </div>
-
         <div className="form-group">
           <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
         </div>

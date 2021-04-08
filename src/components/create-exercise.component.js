@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from 'axios';                  //connecting frontend http reqst to the backend
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+
+//constructor.  Js e sobsomoy super constructor hy 
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangeDuration = this.onChangeDuration.bind(this);           //niche onChange func ase kisu sesober define korar jonne
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -22,12 +24,13 @@ export default class CreateExercise extends Component {
     }
   }
 
+  //sober prothome ei func tar kaj hobe
   componentDidMount() {
     axios.get('http://localhost:5000/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
+            users: response.data.map(user => user.username),  //map the array which allow return something every element of the array
             username: response.data[0].username
           })
         }
@@ -58,7 +61,7 @@ export default class CreateExercise extends Component {
 
   onChangeDate(date) {
     this.setState({
-      date: date
+      idate: date
     })
   }
 
@@ -69,7 +72,7 @@ export default class CreateExercise extends Component {
       username: this.state.username,
       description: this.state.description,
       duration: this.state.duration,
-      date: this.state.date
+      date: this.state.date,
     }
 
     console.log(exercise);
@@ -83,10 +86,10 @@ export default class CreateExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Create New Exercise Log</h3>
+      <h3>Create Product List</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Username: </label>
+          <label>Product Name: </label>
           <select ref="userInput"
               required
               className="form-control"
@@ -103,7 +106,7 @@ export default class CreateExercise extends Component {
           </select>
         </div>
         <div className="form-group"> 
-          <label>Description: </label>
+          <label>Price: </label>
           <input  type="text"
               required
               className="form-control"
@@ -112,7 +115,7 @@ export default class CreateExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
+          <label>Duration (in month): </label>
           <input 
               type="text" 
               className="form-control"
@@ -121,17 +124,17 @@ export default class CreateExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Date: </label>
+          <label>Import Date: </label>
           <div>
             <DatePicker
               selected={this.state.date}
-              onChange={this.onChangeDate}
+              onChange={this.onChangeIDate}
             />
           </div>
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+          <input type="submit" value="Add" className="btn btn-primary" />
         </div>
       </form>
     </div>

@@ -22,7 +22,7 @@ export default class ExercisesList extends Component {
 
     this.state = {exercises: []};
   }
-
+//database theke list ta get korbo evabe
   componentDidMount() {
     axios.get('http://localhost:5000/exercises/')
       .then(response => {
@@ -35,10 +35,10 @@ export default class ExercisesList extends Component {
 
   deleteExercise(id) {
     axios.delete('http://localhost:5000/exercises/'+id)
-      .then(response => { console.log(response.data)});
+      .then(response => { console.log(response.data)});  //database e delete
 
     this.setState({
-      exercises: this.state.exercises.filter(el => el._id !== id)
+      exercises: this.state.exercises.filter(el => el._id !== id) //frontend ba page tay delete jate dekha jayna oi id ta
     })
   }
 
@@ -51,14 +51,14 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
+        <h3>List of Product</h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
-              <th>Description</th>
+              <th>Product Name</th>
+              <th>Price</th>
               <th>Duration</th>
-              <th>Date</th>
+              <th>Import Date</th>
               <th>Actions</th>
             </tr>
           </thead>
