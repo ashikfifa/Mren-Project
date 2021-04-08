@@ -61,7 +61,7 @@ export default class CreateExercise extends Component {
 
   onChangeDate(date) {
     this.setState({
-      idate: date
+      date: date
     })
   }
 
@@ -128,7 +128,7 @@ export default class CreateExercise extends Component {
           <div>
             <DatePicker
               selected={this.state.date}
-              onChange={this.onChangeIDate}
+              onChange={this.onChangeDate}
             />
           </div>
         </div>
