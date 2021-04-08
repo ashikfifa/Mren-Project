@@ -57,7 +57,7 @@ export default class ExercisesList extends Component {
             <tr>
               <th>Product Name</th>
               <th>Price</th>
-              <th>Duration</th>
+              <th>Quantity</th>
               <th>Import Date</th>
               <th>Actions</th>
             </tr>

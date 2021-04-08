@@ -16,7 +16,7 @@ export default class EditExercise extends Component {
     this.state = {
       username: '',
       description: '',
-      duration: 0,
+      duration: '',
       date: new Date(),
       users: []
     }
@@ -95,7 +95,7 @@ export default class EditExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Edit Exercise Log</h3>
+      <h3>Edit Product List</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Product Name: </label>
@@ -124,9 +124,9 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in month): </label>
-          <input 
-              type="text" 
+          <label>Quantity: </label>
+          <input  type="text" 
+              required
               className="form-control"
               value={this.state.duration}
               onChange={this.onChangeDuration}
@@ -142,7 +142,7 @@ export default class EditExercise extends Component {
           </div>
         </div>
         <div className="form-group">
-          <input type="submit" value="Add" className="btn btn-primary" />
+          <input type="submit" value="Save Changes" className="btn btn-primary" />
         </div>
       </form>
     </div>
